@@ -1351,7 +1351,7 @@ body.dark-theme .popup .add-to-cart-popup:hover {
 </head>
 <body class="light-theme">
     <header>
-               <div id="logo"></div>
+                <div id="logo"></div>
         <button id="theme-toggle" onclick="toggleTheme()"></button>
     </header>
     <nav>
@@ -1437,8 +1437,7 @@ body.dark-theme .popup .add-to-cart-popup:hover {
     <button id="cart-button" onclick="toggleCart()">🛍️</button>
     <div id="product-added-message" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.7); color: white; padding: 20px; border-radius: 8px; z-index: 1001;"> Adicionado ao seu pedido! </div>
 
-    
- <script>
+    <script>
          function toggleTheme() {
             document.body.classList.toggle('dark-theme');
             updateButtonBoxesTheme();
@@ -1462,30 +1461,182 @@ body.dark-theme .popup .add-to-cart-popup:hover {
 
 
         function filterProducts(query) {
-    const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
-    renderCategorizedProducts(filteredProducts); // Usar renderCategorizedProducts para manter categorias
-}
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
+            renderCategorizedProducts(filteredProducts); // Usar renderCategorizedProducts para manter categorias
+        }
 
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-
+        const products = [
+    {
+        id: 13,
+        category: 'Cama',
+        name: 'Jogo de lençol 3 pçs toque algodão Queen',
+        images: ['https://images.yampi.me/assets/stores/lindacasa/uploads/images/jogo-de-lencol-casal-4-pecas-petit-poa-micro-percal-200-fios-estampado-rose-651b113a32e3a-medium.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6p-jqO5eQY_l78SznW6v84j-1I_X4Qj56w&usqp=CAU'],
+        description: 'Jogo de lençol 3 peças toque algodão para cama Queen.',
+        price: 40.00,
+        topDescription: 'Conforto e maciez para cama Queen.'
+    },
+    {
+        id: 14,
+        category: 'Cama',
+        name: 'Jogo de lençol 3 pçs toque algodão Casal',
+        images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6ax1AnpLsxlDZmqtKz6eJjvW9J5X69n9Nw&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6p-jqO5eQY_l78SznW6v84j-1I_X4Qj56w&usqp=CAU'],
+        description: 'Jogo de lençol 3 peças toque algodão para cama Casal.',
+        price: 35.00,
+        topDescription: 'Aconchego e praticidade para cama Casal.'
+    },
+    {
+        id: 15,
+        category: 'Cama',
+        name: 'Jogo de lençol 3 pçs toque algodão Solteiro',
+        images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6ax1AnpLsxlDZmqtKz6eJjvW9J5X69n9Nw&usqp=CAU', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp6p-jqO5eQY_l78SznW6v84j-1I_X4Qj56w&usqp=CAU'],
+        description: 'Jogo de lençol 3 peças toque algodão para cama Solteiro.',
+        price: 25.00,
+        topDescription: 'Conforto ideal para cama Solteiro.'
+    },
+    {
+        id: 16,
+        category: 'Cama',
+        name: 'Jogo de lençol 4 pçs toque algodão Queen',
+        images: ['https://m.media-amazon.com/images/I/6180iko9n2L._AC_UF1000,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71sZn-9zFwL._AC_UF1000,1000_QL80_.jpg'],
+        description: 'Jogo de lençol 4 peças toque algodão para cama Queen.',
+        price: 60.00,
+        topDescription: 'Luxo e conforto para cama Queen.'
+    },
+    {
+        id: 17,
+        category: 'Cama',
+        name: 'Jogo de lençol 4 pçs toque algodão Casal',
+        images: ['https://m.media-amazon.com/images/I/6180iko9n2L._AC_UF1000,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71sZn-9zFwL._AC_UF1000,1000_QL80_.jpg'],
+        description: 'Jogo de lençol 4 peças toque algodão para cama Casal.',
+        price: 50.00,
+        topDescription: 'Conforto premium para cama Casal.'
+    },
+    {
+        id: 18,
+        category: 'Cama',
+        name: 'Jogo de lençol 4 pçs toque algodão Solteiro',
+        images: ['https://m.media-amazon.com/images/I/6180iko9n2L._AC_UF1000,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71sZn-9zFwL._AC_UF1000,1000_QL80_.jpg'],
+        description: 'Jogo de lençol 4 peças toque algodão para cama Solteiro.',
+        price: 40.00,
+        topDescription: 'Praticidade e conforto para cama Solteiro.'
+    },
+    {
+        id: 19,
+        category: 'Cama',
+        name: 'Lençol avulso toque algodão Queen',
+        images: ['https://m.media-amazon.com/images/I/71Kp9l6z9JL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71425v4jJYL._AC_UF894,1000_QL80_.jpg'],
+        description: 'Lençol avulso toque algodão para cama Queen.',
+        price: 30.00,
+        topDescription: 'Maciez e qualidade para cama Queen.'
+    },
+    {
+        id: 20,
+        category: 'Cama',
+        name: 'Lençol avulso toque algodão Casal',
+        images: ['https://m.media-amazon.com/images/I/71Kp9l6z9JL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71425v4jJYL._AC_UF894,1000_QL80_.jpg'],
+        description: 'Lençol avulso toque algodão para cama Casal.',
+        price: 25.00,
+        topDescription: 'Conforto e praticidade para cama Casal.'
+    },
+    {
+        id: 21,
+        category: 'Cama',
+        name: 'Lençol avulso toque algodão Solteiro',
+        images: ['https://m.media-amazon.com/images/I/71Kp9l6z9JL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71425v4jJYL._AC_UF894,1000_QL80_.jpg'],
+        description: 'Lençol avulso toque algodão para cama Solteiro.',
+        price: 20.00,
+        topDescription: 'Ideal para noites tranquilas em cama Solteiro.'
+    },
+    {
+        id: 22,
+        category: 'Cama',
+        name: 'Lençol de elástico Queen',
+        images: ['https://m.media-amazon.com/images/I/61xANyK6SNL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71g7fqT1pHL._AC_UF894,1000_QL80_.jpg'],
+        description: 'Lençol de elástico para cama Queen.',
+        price: 30.00,
+        topDescription: 'Ajuste perfeito para cama Queen.'
+    },
+    {
+        id: 23,
+        category: 'Cama',
+        name: 'Lençol de elástico Casal',
+        images: ['https://m.media-amazon.com/images/I/61xANyK6SNL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71g7fqT1pHL._AC_UF894,1000_QL80_.jpg'],
+        description: 'Lençol de elástico para cama Casal.',
+        price: 25.00,
+        topDescription: 'Praticidade e conforto para cama Casal.'
+    },
+    {
+        id: 24,
+        category: 'Cama',
+        name: 'Lençol de elástico Solteiro',
+        images: ['https://m.media-amazon.com/images/I/61xANyK6SNL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71g7fqT1pHL._AC_UF894,1000_QL80_.jpg'],
+        description: 'Lençol de elástico para cama Solteiro.',
+        price: 17.00,
+        topDescription: 'Ideal para cama Solteiro.'
+    },
+    {
+        id: 25,
+        category: 'Sala',
+        name: 'Cortina rústica estampada Sala',
+        images: ['https://m.media-amazon.com/images/I/71F5tZxlVAL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/719oe3kFs2L._AC_UF894,1000_QL80_.jpg'],
+        description: 'Cortina rústica estampada para Sala.',
+        price: 60.00,
+        topDescription: 'Estilo e privacidade para sua sala.'
+    },
+    {
+        id: 26,
+        category: 'Sala',
+        name: 'Cortina rústica estampada Janela',
+        images: ['https://m.media-amazon.com/images/I/71F5tZxlVAL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/719oe3kFs2L._AC_UF894,1000_QL80_.jpg'],
+        description: 'Cortina rústica estampada para Janela.',
+        price: 45.00,
+        topDescription: 'Charme e funcionalidade para janelas.'
+    },
+    {
+        id: 27,
+        category: 'Sala',
+        name: 'Cortina jacquard Sala 4 metros',
+        images: ['https://m.media-amazon.com/images/I/71vNyRxcWKL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71r3skBVT6L._AC_UF894,1000_QL80_.jpg'],
+        description: 'Cortina jacquard Sala 4 metros.',
+        price: 80.00,
+        topDescription: 'Elegância e sofisticação para sua sala.'
+    },
+    {
+        id: 28,
+        category: 'Sala',
+        name: 'Cortina jacquard Sala 3 metros',
+        images: ['https://m.media-amazon.com/images/I/71vNyRxcWKL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71r3skBVT6L._AC_UF894,1000_QL80_.jpg'],
+        description: 'Cortina jacquard Sala 3 metros.',
+        price: 70.00,
+        topDescription: 'Conforto visual e estilo para sua sala.'
+    },
+    {
+        id: 29,
+        category: 'Sala',
+        name: 'Cortina jacquard Janela',
+        images: ['https://m.media-amazon.com/images/I/71vNyRxcWKL._AC_UF894,1000_QL80_.jpg', 'https://m.media-amazon.com/images/I/71r3skBVT6L._AC_UF894,1000_QL80_.jpg'],
+        description: 'Cortina jacquard Janela.',
+        price: 55.00,
+        topDescription: 'Luminosidade controlada com estilo.'
+    }
+];
         const grid = document.getElementById('product-grid');
         let currentCarouselIndex = 0; // Índice para controlar o carrossel de imagens
         let currentPopupProductId = null; // Para rastrear o produto do popup atual
 
-      function renderProducts(productsToRender) {
-    grid.innerHTML = '';
-    productsToRender.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-            <img src="${product.images[0]}" alt="${product.name}" onclick="openPopup(${product.id})" loading="lazy">
-            <h3>${product.name}</h3>
-            <p class="product-price">${formatPrice(product.price)}</p>
-            <button class="add-to-cart-popup" onclick="addToCart(${product.id})">Quero Este Produto</button>
-        `;
-        grid.appendChild(card);
-    });
-}
+       function renderProducts(productsToRender) {
+        grid.innerHTML = '';
+        productsToRender.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                        <img src="${product.images[0]}" alt="${product.name}" onclick="openPopup(${product.id})" loading="lazy">
+                        <h3>${product.name}</h3>
+                        <p class="product-price">${formatPrice(product.price)}</p>  <button class="add-to-cart-popup" onclick="addToCart(${product.id})">Quero Este Produto</button>
+            `;
+            grid.appendChild(card);
+        });
+    }
 
         function renderCategorizedProducts(productsToRender) {
             grid.innerHTML = ''; // Limpa o grid antes de renderizar
@@ -1520,18 +1671,18 @@ body.dark-theme .popup .add-to-cart-popup:hover {
             });
         }
         function filterCategory(category) {
-    const categoryLinks = document.querySelectorAll('nav a');
-    categoryLinks.forEach(link => link.classList.remove('active')); // Remove 'active' de todos
-    document.querySelector(`nav a[data-category="${category}"]`).classList.add('active'); // Adiciona 'active' ao clicado
+            const categoryLinks = document.querySelectorAll('nav a');
+            categoryLinks.forEach(link => link.classList.remove('active')); // Remove 'active' de todos
+            document.querySelector(`nav a[data-category="${category}"]`).classList.add('active'); // Adiciona 'active' ao clicado
 
-    let filteredProducts;
-    if (category === 'Todos') {
-        filteredProducts = products;
-    } else {
-        filteredProducts = products.filter(product => product.category === category);
-    }
-    renderCategorizedProducts(filteredProducts); // Renderiza produtos filtrados E categorizados
-}
+            let filteredProducts;
+            if (category === 'Todos') {
+                filteredProducts = products;
+            } else {
+                filteredProducts = products.filter(product => product.category === category);
+            }
+            renderCategorizedProducts(filteredProducts); // Renderiza produtos filtrados E categorizados
+        }
 
 
         document.getElementById('search-bar').addEventListener('input', (e) => {
@@ -1541,31 +1692,31 @@ body.dark-theme .popup .add-to-cart-popup:hover {
 
 
         function openPopup(productId) {
-    currentPopupProductId = productId;
-    const product = products.find(p => p.id === productId);
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('popup').style.display = 'block';
-    document.body.classList.add('popup-open');
+            currentPopupProductId = productId;
+            const product = products.find(p => p.id === productId);
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+            document.body.classList.add('popup-open');
 
-    // Carrossel de Imagens (mantém como está) ...
-    const carouselHTML = `
-        <div class="image-carousel">
-            <div class="carousel-images" id="carouselImages-${productId}">
-                ${product.images.map(image => `<img src="${image}" alt="${product.name}">`).join('')}
-            </div>
-            ${product.images.length > 1 ? `<button class="carousel-arrow prev" onclick="prevImage(${productId})">&#10094;</button>
-            <button class="carousel-arrow next" onclick="nextImage(${productId})">&#10095;</button>` : ''}
-        </div>
-    `;
+            // Carrossel de Imagens (mantém como está) ...
+            const carouselHTML = `
+                <div class="image-carousel">
+                    <div class="carousel-images" id="carouselImages-${productId}">
+                        ${product.images.map(image => `<img src="${image}" alt="${product.name}">`).join('')}
+                    </div>
+                    ${product.images.length > 1 ? `<button class="carousel-arrow prev" onclick="prevImage(${productId})">&#10094;</button>
+                    <button class="carousel-arrow next" onclick="nextImage(${productId})">&#10095;</button>` : ''}
+                </div>
+            `;
 
-    document.getElementById('popup-content').innerHTML = `
-        ${carouselHTML}
-        <h2>${product.name}</h2>
-        <p>${product.topDescription}</p>  <button class="add-to-cart-popup" onclick="addToCart(${product.id})">Quero Este Produto</button>
-    `;
-    currentCarouselIndex = 0;
-    updateCarousel(productId);
-}
+            document.getElementById('popup-content').innerHTML = `
+                ${carouselHTML}
+                <h2>${product.name}</h2>
+                <p>${product.topDescription}</p>  <button class="add-to-cart-popup" onclick="addToCart(${product.id})">Quero Este Produto</button>
+            `;
+            currentCarouselIndex = 0;
+            updateCarousel(productId);
+        }
 
         function prevImage(productId) {
             currentCarouselIndex = Math.max(0, currentCarouselIndex - 1);
@@ -1592,30 +1743,31 @@ body.dark-theme .popup .add-to-cart-popup:hover {
             document.body.classList.remove('popup-open');
         }
 
-       function addToCart(productId) {
+        function addToCart(productId) {
     console.log("Função addToCart foi chamada para o produto ID:", productId);
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const product = products.find(p => p.id === productId);
-    const cartItem = cart.find(item => item.id === productId);
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const product = products.find(p => p.id === productId);
+            const cartItem = cart.find(item => item.id === productId);
 
-    if (cartItem) {
-        cartItem.quantity++;
-    } else {
-        cart.push({
-            ...product,
-            quantity: 1
-        });
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
-    // Show the message
-    const messageDiv = document.getElementById('product-added-message');
-    messageDiv.style.display = 'block';
-    // Hide the message after a delay (e.g., 2 seconds)
-    setTimeout(() => {
-        messageDiv.style.display = 'none';
-    }, 2000); // 2000 milliseconds = 2 seconds
-}
+
+            if (cartItem) {
+                cartItem.quantity++;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+        // Show the message
+        const messageDiv = document.getElementById('product-added-message');
+        messageDiv.style.display = 'block';
+        // Hide the message after a delay (e.g., 2 seconds)
+        setTimeout(() => {
+          messageDiv.style.display = 'none';
+        }, 2000); // 2000 milliseconds = 2 seconds
+      }
 
 
         function renderCart() {
@@ -1639,49 +1791,46 @@ body.dark-theme .popup .add-to-cart-popup:hover {
         // cartItemsContainer.appendChild(observationArea);
 
         cart.forEach(item => {
-            const itemSubtotal = item.price * item.quantity; // Calcula o subtotal do item
-            totalCartValue += itemSubtotal; // Adiciona ao total geral
+                const itemSubtotal = item.price * item.quantity; // Calcula o subtotal do item
+                totalCartValue += itemSubtotal; // Adiciona ao total geral
 
-            const itemElement = document.createElement('div');
-            itemElement.classList.add('cart-item');
-            itemElement.innerHTML = `
-                <img src="${item.images[0]}" alt="${item.name}">
-                <div>
-                    <h4>${item.name}</h4>
-                    <div class="quantity-controls">
-                        <button class="quantity-button"
-                            onclick="decreaseQuantity(${item.id})"
-                            onmousedown="startDecreaseQuantity(${item.id})"
-                            onmouseup="stopDecreaseQuantity()"
-                            onmouseleave="stopDecreaseQuantity()">
-                            -
-                        </button>
-                        <input type="number" class="item-quantity-input" value="${item.quantity}" min="1"
-                            onchange="updateQuantityInput(this, ${item.id})">
-                        <button class="quantity-button"
-                            onclick="increaseQuantity(${item.id})"
-                            onmousedown="startIncreaseQuantity(${item.id})"
-                            onmouseup="stopIncreaseQuantity()"
-                            onmouseleave="stopDecreaseQuantity()">
-                            +
-                        </button>
-                    </div>
-                    <p class="item-price">Subtotal: ${formatPrice(itemSubtotal)}</p>
-                </div>
-                <button class="remove-item" onclick="removeFromCart(${item.id})" title="Remover item">
-                    <i class="fas fa-trash-alt"></i> <span style="font-size: 1px; opacity: 0;">Remover</span>
-                </button>
-            `;
-            cartItemsContainer.appendChild(itemElement);
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                                <img src="${item.images[0]}" alt="${item.name}">
+                                <div>
+                                        <h4>${item.name}</h4>
+                                        <div class="quantity-controls">
+                                                <button class="quantity-button"
+                                                                                                onclick="decreaseQuantity(${item.id})"
+                                                                                                onmousedown="startDecreaseQuantity(${item.id})"
+                                                                                                onmouseup="stopDecreaseQuantity()"
+                                                                                                onmouseleave="stopDecreaseQuantity()">
+                                                                                                -
+                                                        </button>
+                                                <input type="number" class="item-quantity-input" value="${item.quantity}" min="1"
+                                                                                                onchange="updateQuantityInput(this, ${item.id})">
+                                                <button class="quantity-button"
+                                                                                                onclick="increaseQuantity(${item.id})"
+                                                                                                onmousedown="startIncreaseQuantity(${item.id})"
+                                                                                                onmouseup="stopIncreaseQuantity()"
+                                                                                                onmouseleave="stopDecreaseQuantity()">
+                                                                                                +
+                                                        </button>
+                                        </div>
+                                        <p class="item-price">Subtotal: ${formatPrice(itemSubtotal)}</p>  </div>
+                                <button class="remove-item" onclick="removeFromCart(${item.id})" title="Remover item">
+                                                        <i class="fas fa-trash-alt"></i> <span style="font-size: 1px; opacity: 0;">Remover</span>
+                                </button>
+                `;
+                cartItemsContainer.appendChild(itemElement);
         });
     }
 
-    function updateSendButtonLink(totalValue) {
+function updateSendButtonLink(totalValue) {
         const sendButton = document.querySelector('.popup-cart .cart-footer button:last-child'); // Seleciona o botão "Enviar no WhatsApp"
         sendButton.textContent = 'Limpar tudo'; // Remove a parte do total
-    }
-
-    const cartFooter = document.querySelector('.popup-cart .cart-footer');
+}      const cartFooter = document.querySelector('.popup-cart .cart-footer');
     let totalDisplay = cartFooter.querySelector('#cart-total-display');
     if (!totalDisplay) {
         totalDisplay = document.createElement('div');
@@ -1694,64 +1843,64 @@ body.dark-theme .popup .add-to-cart-popup:hover {
 }
 
         function updateQuantity(productId, quantity) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartItem = cart.find(item => item.id === productId);
-    if (cartItem) {
-        cartItem.quantity = parseInt(quantity);
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
-}
-
-        function removeFromCart(productId) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartItemsContainer = document.getElementById('cart-items');
-    const itemElementToRemove = cartItemsContainer.querySelector(`.cart-item:has(button[onclick*='removeFromCart(${productId})'])`);
-    if (itemElementToRemove) {
-        itemElementToRemove.classList.add('removing-item');
-        setTimeout(() => {
-            cart = cart.filter(item => item.id !== productId);
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItem = cart.find(item => item.id === productId);
+            if (cartItem) {
+                cartItem.quantity = parseInt(quantity);
+            }
             localStorage.setItem('cart', JSON.stringify(cart));
             renderCart();
-        }, 300);
-    } else {
-        cart = cart.filter(item => item.id !== productId);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        renderCart();
-    }
-}
+        }
+
+        function removeFromCart(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            const itemElementToRemove = cartItemsContainer.querySelector(`.cart-item:has(button[onclick*='removeFromCart(${productId})'])`);
+            if (itemElementToRemove) {
+                itemElementToRemove.classList.add('removing-item');
+                setTimeout(() => {
+                    cart = cart.filter(item => item.id !== productId);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    renderCart();
+                }, 300);
+            } else {
+                cart = cart.filter(item => item.id !== productId);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            }
+        }
 
         function clearCart() {
-    localStorage.removeItem('cart');
-    renderCart();
-}
+            localStorage.removeItem('cart');
+            renderCart();
+        }
 
-       function openDoubtPopup() {
-    document.getElementById('overlay').style.display = 'block';
-    document.getElementById('doubtPopup').style.display = 'block';
-}
+        function openDoubtPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('doubtPopup').style.display = 'block';
+        }
 
         function closeDoubtPopup() {
-    document.getElementById('overlay').style.display = 'none';
-    document.getElementById('doubtPopup').style.display = 'none';
-}
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('doubtPopup').style.display = 'none';
+        }
 
         function sendToWhatsappDoubt() { // Função renomeada para diferenciar
-    const doubtText = document.getElementById('doubtText').value;
-    let whatsappMessage = "*Dúvida do Cliente:*\n" + (doubtText ? doubtText : "Sem dúvida digitada") + "\n\n";
+            const doubtText = document.getElementById('doubtText').value;
+            let whatsappMessage = "*Dúvida do Cliente:*\n" + (doubtText ? doubtText : "Sem dúvida digitada") + "\n\n";
 
-    // Envia direto para o WhatsApp após confirmar a dúvida
-    const encodedMessage = encodeURIComponent(whatsappMessage);
-    const whatsappNumber = '+5579991996384';
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            // Envia direto para o WhatsApp após confirmar a dúvida
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappNumber = '+5579991996384';
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
 
-    closeDoubtPopup(); // Fecha o popup de dúvidas após enviar
+            closeDoubtPopup(); // Fecha o popup de dúvidas após enviar
 }
 
         function sendToWhatsappCart() { // Nova função para enviar o carrinho pelo botão no carrinho
-    openCustomerNamePopup(""); // Abre o popup de nome SEM mensagem inicial, pois já está enviando o carrinho
-    toggleCart(); // Fecha o carrinho
-}
+            openCustomerNamePopup(""); // Abre o popup de nome SEM mensagem inicial, pois já está enviando o carrinho
+            toggleCart(); // Fecha o carrinho
+        }
 
 
 function openCustomerNamePopup(initialMessage) {
@@ -1807,12 +1956,12 @@ function formatPrice(price) {
 }
 
         function toggleCart() {
-    document.getElementById('popup-cart').classList.toggle('open');
-}
+            document.getElementById('popup-cart').classList.toggle('open');
+        }
 
         function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-}
+            document.getElementById('sidebar').classList.toggle('open');
+        }
 
         function renderProducts(productsToRender) {
     grid.innerHTML = '';
@@ -1820,22 +1969,21 @@ function formatPrice(price) {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <img src="${product.images[0]}" alt="${product.name}" onclick="openPopup(${product.id})" loading="lazy">
-            <h3>${product.name}</h3>
-            <p class="product-price">${formatPrice(product.price)}</p>
-            <button class="add-to-cart-popup" onclick="addToCart(${product.id})">Quero Este Produto</button>
+                    <img src="${product.images[0]}" alt="${product.name}" onclick="openPopup(${product.id})" loading="lazy">
+                    <h3>${product.name}</h3>
+                    <p class="product-price">${formatPrice(product.price)}</p>  <button class="add-to-cart-popup" onclick="addToCart(${product.id})">Quero Este Produto</button>
         `;
         grid.appendChild(card);
     });
 }
 
         function toggleTheme() {
-    document.body.classList.toggle('dark-theme');
-    const currentTheme = document.body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
-    document.getElementById('sidebar').classList.remove('dark-theme', 'light-theme');
-    document.getElementById('sidebar').classList.add(currentTheme);
-    updateButtonBoxesTheme(); // Garante que as bordas dos botões são atualizadas também ao trocar o tema
-}
+            document.body.classList.toggle('dark-theme');
+            const currentTheme = document.body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+            document.getElementById('sidebar').classList.remove('dark-theme', 'light-theme');
+            document.getElementById('sidebar').classList.add(currentTheme);
+            updateButtonBoxesTheme(); // Garante que as bordas dos botões são atualizadas também ao trocar o tema
+        }
         renderCart();
         let increaseInterval;
         let decreaseInterval;
@@ -1897,30 +2045,8 @@ function formatPrice(price) {
         updateButtonBoxesTheme();
         updateCategoryButtonsTheme(); // Chamada inicial para tema dos botões de categoria
 
-async function loadProducts() {
-    try {
-        // URL do Pastebin com o JSON dos produtos
-        const pastebinUrl = 'https://https://pastebin.com/raw/fmAw7uL7';
-        
-        // Carrega os produtos do Pastebin
-        const response = await fetch(pastebinUrl);
-        const products = await response.json();
 
-        // Salva os produtos no localStorage
-        localStorage.setItem('products', JSON.stringify(products));
-
-        // Renderiza os produtos na página
-        renderProducts(products);
-    } catch (error) {
-        console.error('Erro ao carregar os produtos:', error);
-    }
-}
-
-// Chama a função para carregar os produtos ao carregar a página
-loadProducts();
-
-// Chama a função para carregar os produtos ao carregar a página
-loadProducts();
     </script>
+
 </body>
 </html>
