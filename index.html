@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Minha Loja - Cama, Mesa e Banho</title>
+    <title>Talismã Magazine - Cama, Mesa e Banho</title>
     <style>
         /* ===== CSS Reset ===== */
         *, *::before, *::after {
@@ -1351,7 +1351,8 @@ body.dark-theme .popup .add-to-cart-popup:hover {
 </head>
 <body class="light-theme">
     <header>
-                <div id="logo"></div>
+        <button id="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+        <div id="logo"></div>
         <button id="theme-toggle" onclick="toggleTheme()"></button>
     </header>
     <nav>
@@ -2049,4 +2050,14 @@ function formatPrice(price) {
     </script>
 
 </body>
+<script type="module">
+    import { produtos } from './produtos.js';
+    
+    // Carregar produtos do localStorage ao iniciar
+let products = JSON.parse(localStorage.getItem('products')) || [];
+renderCategorizedProducts(products); // Renderiza os produtos na página principal
+    
+    // Sua lógica normal do site
+    renderProducts(produtos);
+</script>
 </html>
